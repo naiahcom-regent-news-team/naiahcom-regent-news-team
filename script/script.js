@@ -1,3 +1,4 @@
+// Global state
 let membersData = [];
 let filteredMembers = [];
 let currentFilters = {
@@ -7,23 +8,27 @@ let currentFilters = {
 };
 let currentView = 'grid';
 
-const membersContainer = document.getElementById('membersContainer');
-const searchInput = document.getElementById('searchInput');
-const streamFilter = document.getElementById('streamFilter');
-const newsTypeFilter = document.getElementById('newsTypeFilter');
-const memberModal = document.getElementById('memberModal');
-const modalContent = document.getElementById('modalContent');
-const closeModal = document.querySelector('.close');
-const clearSearchBtn = document.getElementById('clearSearch');
-const resetFiltersBtn = document.getElementById('resetFilters');
-const backToTopBtn = document.getElementById('backToTop');
-const resultsCount = document.getElementById('resultsCount');
-const totalMembers = document.getElementById('totalMembers');
-const loadingIndicator = document.getElementById('loadingIndicator');
-const noResultsState = document.getElementById('noResults');
-const headerMemberCount = document.getElementById('headerMemberCount');
-const viewButtons = document.querySelectorAll('.view-btn');
+// DOM Elements
+const elements = {
+    membersContainer: document.getElementById('membersContainer'),
+    searchInput: document.getElementById('searchInput'),
+    streamFilter: document.getElementById('streamFilter'),
+    newsTypeFilter: document.getElementById('newsTypeFilter'),
+    memberModal: document.getElementById('memberModal'),
+    modalContent: document.getElementById('modalContent'),
+    closeModal: document.querySelector('.close'),
+    clearSearchBtn: document.getElementById('clearSearch'),
+    resetFiltersBtn: document.getElementById('resetFilters'),
+    backToTopBtn: document.getElementById('backToTop'),
+    resultsCount: document.getElementById('resultsCount'),
+    totalMembers: document.getElementById('totalMembers'),
+    loadingIndicator: document.getElementById('loadingIndicator'),
+    noResultsState: document.getElementById('noResults'),
+    headerMemberCount: document.getElementById('headerMemberCount'),
+    viewButtons: document.querySelectorAll('.view-btn')
+};
 
+// Initialize application
 document.addEventListener('DOMContentLoaded', function() {
     initializeApp();
 });
@@ -31,17 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
 async function initializeApp() {
     try {
         showLoadingState();
-        
         initializeTabs();
-        
         await loadMembersData();
         setupEventListeners();
         setupIntersectionObserver();
         hideLoadingState();
         updateHeaderStats();
-        
         showTab('members');
-        
     } catch (error) {
         handleInitializationError(error);
     }
@@ -64,11 +65,13 @@ function initializeTabs() {
 function showTab(tabId) {
     console.log('Showing tab:', tabId);
     
+    // Update tabs
     document.querySelectorAll('.tab-button').forEach(tab => {
         tab.classList.remove('active');
         tab.setAttribute('aria-selected', 'false');
     });
     
+    // Update content
     document.querySelectorAll('.tab-content').forEach(content => {
         content.style.display = 'none';
         content.classList.remove('active');
@@ -81,14 +84,13 @@ function showTab(tabId) {
     if (activeTab && activeContent) {
         activeTab.classList.add('active');
         activeTab.setAttribute('aria-selected', 'true');
-        
         activeContent.style.display = 'block';
         activeContent.classList.add('active');
         activeContent.setAttribute('aria-hidden', 'false');
-        
         activeTab.focus();
     }
     
+    // Render members if on members tab
     if (tabId === 'members') {
         setTimeout(() => {
             renderMembers();
@@ -109,27 +111,27 @@ function getTabName(tabId) {
 }
 
 function showLoadingState() {
-    if (loadingIndicator) {
-        loadingIndicator.style.display = 'flex';
+    if (elements.loadingIndicator) {
+        elements.loadingIndicator.style.display = 'flex';
     }
-    if (membersContainer) {
-        membersContainer.innerHTML = '';
+    if (elements.membersContainer) {
+        elements.membersContainer.innerHTML = '';
     }
-    if (noResultsState) {
-        noResultsState.style.display = 'none';
+    if (elements.noResultsState) {
+        elements.noResultsState.style.display = 'none';
     }
 }
 
 function hideLoadingState() {
-    if (loadingIndicator) {
-        loadingIndicator.style.display = 'none';
+    if (elements.loadingIndicator) {
+        elements.loadingIndicator.style.display = 'none';
     }
 }
 
 function handleInitializationError(error) {
     console.error('Application initialization failed:', error);
-    if (membersContainer) {
-        membersContainer.innerHTML = `
+    if (elements.membersContainer) {
+        elements.membersContainer.innerHTML = `
             <div class="error-message">
                 <i class="fas fa-exclamation-triangle"></i>
                 <h3>Unable to Load Team Members</h3>
@@ -145,18 +147,253 @@ function handleInitializationError(error) {
 
 async function loadMembersData() {
     try {
-        if (window.membersJSONData) {
-            membersData = window.membersJSONData;
-        } else {
-            const response = await fetch('data/members.json');
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            membersData = await response.json();
-        }
+        // Use the provided JSON data directly
+        membersData = [
+          {
+            "id": "philippa",
+            "name": "Philippa",
+            "class": "SSS3",
+            "stream": "Arts",
+            "newsType": "President",
+            "newsAbout": "Philippa leads the press team with confidence and heart. Her calm leadership and dedication to teamwork make her a respected role model who brings out the best in everyone around her.",
+            "photo": "assets/images/phillipa.jpg",
+            "pronouns": "she/her",
+            "tone": "B"
+          },
+          {
+            "id": "favour",
+            "name": "Favour",
+            "class": "SSS2",
+            "stream": "Science",
+            "newsType": "Vice President & Local News Reporter",
+            "newsAbout": "Favour supports the President and contributes to local news coverage. Her dedication and growing leadership skills make her a promising future leader of the team.",
+            "photo": "assets/images/favour.jpg",
+            "pronouns": "she/her",
+            "tone": "B"
+          },
+          {
+            "id": "patricia",
+            "name": "Patricia",
+            "class": "SSS3",
+            "stream": "Arts",
+            "newsType": "Motivational Speaker & Finance Secretary",
+            "newsAbout": "Patricia balances creativity and organization in her dual role. She inspires her peers with thoughtful talks and manages the team's finances responsibly and efficiently.",
+            "photo": "assets/images/patricia.jpg",
+            "pronouns": "she/her",
+            "tone": "A"
+          },
+          {
+            "id": "elizabeth",
+            "name": "Elizabeth",
+            "class": "SSS2",
+            "stream": "Arts",
+            "newsType": "Entertainment Reporter & Assistant Finance Secretary",
+            "newsAbout": "Elizabeth balances her love for entertainment with a sharp sense of organization. She reports with creativity and helps manage the team's finances effectively.",
+            "photo": "assets/images/elizabeth.jpg",
+            "pronouns": "she/her",
+            "tone": "A"
+          },
+          {
+            "id": "bradley",
+            "name": "Bradley",
+            "class": "SSS3",
+            "stream": "Arts",
+            "newsType": "Head of Media & Video Production",
+            "newsAbout": "Bradley leads the media unit with vision and creativity. His talent for video production and storytelling sets a high standard for the team's visual work.",
+            "photo": "assets/images/bradley.jpg",
+            "pronouns": "he/him",
+            "tone": "B"
+          },
+          {
+            "id": "nyamia",
+            "name": "Nyamia",
+            "class": "SSS2",
+            "stream": "Science",
+            "newsType": "Vice Head of Media & Video Production",
+            "newsAbout": "Nyamia covers safety and awareness topics that keep students informed. His steady presence and sense of responsibility make him a dependable part of the team.",
+            "photo": "assets/images/nyamia.jpg",
+            "pronouns": "he/him",
+            "tone": "A"
+          },
+          {
+            "id": "lauren",
+            "name": "Lauren",
+            "class": "SSS3",
+            "stream": "Science",
+            "newsType": "Editor & Media Specialist",
+            "newsAbout": "Lauren manages the digital side of the press team with creativity and skill. He designed and built the team's official website, TypeShift, using his technical talents to strengthen the team's online presence.",
+            "photo": "assets/images/laurens.png",
+            "pronouns": "he/him",
+            "tone": "A"
+          },
+          {
+            "id": "veronica",
+            "name": "Veronica",
+            "class": "SSS2",
+            "stream": "Arts",
+            "newsType": "Lead Broadcaster",
+            "newsAbout": "Veronica is the clear and confident voice of the school. Her professionalism behind the mic and her cheerful energy make every broadcast engaging and enjoyable to listen to.",
+            "photo": "assets/images/veronica.jpg",
+            "pronouns": "she/her",
+            "tone": "B"
+          },
+          {
+            "id": "rodney",
+            "name": "Rodney",
+            "class": "SSS3",
+            "stream": "Science",
+            "newsType": "Campus News Reporter",
+            "newsAbout": "Rodney has a great eye for stories and a natural curiosity about student life. His approachable attitude and clear reporting make him one of the most trusted voices in the press team.",
+            "photo": "assets/images/rodney.jpg",
+            "pronouns": "he/him",
+            "tone": "B"
+          },
+          {
+            "id": "seriki",
+            "name": "Seriki",
+            "class": "SSS3",
+            "stream": "Science",
+            "newsType": "Local News Correspondent",
+            "newsAbout": "Seriki reports on school updates and announcements with accuracy and care. Her approachable manner and sense of responsibility make her a dependable team member.",
+            "photo": "assets/images/seriki.jpg",
+            "pronouns": "she/her",
+            "tone": "A"
+          },
+          {
+            "id": "momoh",
+            "name": "Momoh",
+            "class": "SSS3",
+            "stream": "Science",
+            "newsType": "Local Sports Correspondent",
+            "newsAbout": "Momoh brings enthusiasm and insight to every sports story. His passion for teamwork and athletics helps him deliver exciting and accurate coverage of school competitions.",
+            "photo": "assets/images/momoh.jpg",
+            "pronouns": "he/him",
+            "tone": "B"
+          },
+          {
+            "id": "moriba",
+            "name": "Moriba",
+            "class": "SSS3",
+            "stream": "Science",
+            "newsType": "International Sports Analyst",
+            "newsAbout": "Moriba takes sports journalism to a thoughtful level with his detailed analysis and love for global competition. He enjoys helping others appreciate the skill and strategy behind every match.",
+            "photo": "assets/images/moriba.jpg",
+            "pronouns": "he/him",
+            "tone": "A"
+          },
+          {
+            "id": "bawoh",
+            "name": "Bawoh",
+            "class": "SSS3",
+            "stream": "Arts",
+            "newsType": "International Affairs Correspondent",
+            "newsAbout": "Bawoh covers global issues with insight and clarity. Her thoughtful approach helps students connect international news to their everyday understanding of the world.",
+            "photo": "assets/images/bawoh.jpg",
+            "pronouns": "she/her",
+            "tone": "A"
+          },
+          {
+            "id": "fanta",
+            "name": "Fanta",
+            "class": "SSS2",
+            "stream": "Science",
+            "newsType": "Global News Correspondent",
+            "newsAbout": "Fanta reports on global news that matters to young people. Her calm delivery and thoughtful storytelling make her pieces informative and inspiring.",
+            "photo": "assets/images/fanta.jpg",
+            "pronouns": "she/her",
+            "tone": "B"
+          },
+          {
+            "id": "augustine",
+            "name": "Augustine",
+            "class": "SSS3",
+            "stream": "Arts",
+            "newsType": "Entertainment & Culture Reporter",
+            "newsAbout": "Augustine keeps the press team connected to arts and culture. His curiosity and sense of creativity help him share stories that reflect students' interests and school spirit.",
+            "photo": "assets/images/augustine.jpg",
+            "pronouns": "he/him",
+            "tone": "A"
+          },
+          {
+            "id": "isha",
+            "name": "Isha",
+            "class": "SSS2",
+            "stream": "Science",
+            "newsType": "Entertainment Correspondent",
+            "newsAbout": "Isha brings positivity and confidence to her role as Entertainment Correspondent. She enjoys covering events that showcase student talent and creativity.",
+            "photo": "assets/images/ishu.jpg",
+            "pronouns": "she/her",
+            "tone": "B"
+          },
+          {
+            "id": "stellina",
+            "name": "Stellina",
+            "class": "SSS2",
+            "stream": "Arts",
+            "newsType": "International Culture Reporter",
+            "newsAbout": "Stellina reports on culture and traditions from around the world. Her curiosity and appreciation for diversity make her stories both informative and enjoyable.",
+            "photo": "assets/images/stellina.jpg",
+            "pronouns": "she/her",
+            "tone": "A"
+          },
+          {
+            "id": "papah",
+            "name": "Papah",
+            "class": "SSS3",
+            "stream": "Arts",
+            "newsType": "Literary & Creative Arts Editor",
+            "newsAbout": "Papah is passionate about creative writing and poetry. His dedication to helping others express themselves makes the school's literary section one of the press team's highlights.",
+            "photo": "assets/images/papah.jpg",
+            "pronouns": "he/him",
+            "tone": "B"
+          },
+          {
+            "id": "william",
+            "name": "William",
+            "class": "SSS3",
+            "stream": "Arts",
+            "newsType": "Business & Economics Reporter",
+            "newsAbout": "William explores financial and business topics with interest and focus. His reports encourage students to think about entrepreneurship and smart decision-making.",
+            "photo": "assets/images/william.jpg",
+            "pronouns": "he/him",
+            "tone": "A"
+          },
+          {
+            "id": "daniella",
+            "name": "Daniella",
+            "class": "SSS3",
+            "stream": "Commercial",
+            "newsType": "Business & Finance Reporter",
+            "newsAbout": "Daniella enjoys highlighting creative business ideas and achievements. Her professionalism and clear writing bring business news to life for students and staff alike.",
+            "photo": "assets/images/daniella.jpg",
+            "pronouns": "she/her",
+            "tone": "B"
+          },
+          {
+            "id": "augusta",
+            "name": "Augusta",
+            "class": "SSS1",
+            "stream": "Arts",
+            "newsType": "Media & Production Assistant",
+            "newsAbout": "Augusta assists the media team with enthusiasm and commitment. Her willingness to learn and contribute makes her one of the most dependable younger members of the club.",
+            "photo": "assets/images/augusta.jpg",
+            "pronouns": "she/her",
+            "tone": "B"
+          },
+          {
+            "id": "mr-bomah",
+            "name": "Mr. Bomah",
+            "class": "Faculty",
+            "stream": "Arts",
+            "newsType": "Faculty Advisor",
+            "newsAbout": "Mr. Bomah is the heart and soul of our press team. His dedication goes far beyond the classroom; he is a true mentor who invests deeply in each student's growth. With a perfect blend of wisdom and warmth, he creates an environment where we feel safe to experiment, learn, and excel. His encouragement is a constant source of motivation, and his belief in us often surpasses our belief in ourselves. The team's spirit and success are a direct reflection of his passionate leadership.",
+            "photo": "assets/images/mr-bomah.jpg",
+            "pronouns": "he/him",
+            "tone": "A"
+          }
+        ];
         
+        // Validate and normalize data
         if (!Array.isArray(membersData)) {
             throw new Error('Invalid data format: expected array');
         }
@@ -189,33 +426,41 @@ function generateId(name) {
 }
 
 function setupEventListeners() {
-    if (searchInput) {
-        searchInput.addEventListener('input', debounce(handleSearch, 300));
+    // Search functionality
+    if (elements.searchInput) {
+        elements.searchInput.addEventListener('input', debounce(handleSearch, 300));
     }
-    if (clearSearchBtn) {
-        clearSearchBtn.addEventListener('click', clearSearch);
-    }
-    
-    if (streamFilter) {
-        streamFilter.addEventListener('change', handleFilterChange);
-    }
-    if (newsTypeFilter) {
-        newsTypeFilter.addEventListener('change', handleFilterChange);
+    if (elements.clearSearchBtn) {
+        elements.clearSearchBtn.addEventListener('click', clearSearch);
     }
     
-    if (closeModal) {
-        closeModal.addEventListener('click', closeMemberModal);
+    // Filter functionality
+    if (elements.streamFilter) {
+        elements.streamFilter.addEventListener('change', handleFilterChange);
     }
+    if (elements.newsTypeFilter) {
+        elements.newsTypeFilter.addEventListener('change', handleFilterChange);
+    }
+    
+    // Modal functionality
+    if (elements.closeModal) {
+        elements.closeModal.addEventListener('click', closeMemberModal);
+    }
+    
+    // Keyboard navigation
     document.addEventListener('keydown', handleKeyboardNavigation);
     
-    if (resetFiltersBtn) {
-        resetFiltersBtn.addEventListener('click', resetAllFilters);
+    // Reset filters
+    if (elements.resetFiltersBtn) {
+        elements.resetFiltersBtn.addEventListener('click', resetAllFilters);
     }
     
-    if (backToTopBtn) {
-        backToTopBtn.addEventListener('click', scrollToTop);
+    // Back to top
+    if (elements.backToTopBtn) {
+        elements.backToTopBtn.addEventListener('click', scrollToTop);
     }
     
+    // Tab navigation
     document.querySelectorAll('.tab-button').forEach(tab => {
         tab.addEventListener('click', function(e) {
             e.preventDefault();
@@ -234,12 +479,14 @@ function setupEventListeners() {
         });
     });
     
-    if (viewButtons.length > 0) {
-        viewButtons.forEach(btn => {
+    // View toggle (grid/list)
+    if (elements.viewButtons.length > 0) {
+        elements.viewButtons.forEach(btn => {
             btn.addEventListener('click', handleViewToggle);
         });
     }
     
+    // Modal overlays
     document.querySelectorAll('.modal-overlay').forEach(overlay => {
         overlay.addEventListener('click', function() {
             this.closest('.modal').style.display = 'none';
@@ -247,6 +494,7 @@ function setupEventListeners() {
         });
     });
     
+    // Action buttons
     document.querySelectorAll('.action-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const action = this.querySelector('span').textContent.toLowerCase();
@@ -254,6 +502,7 @@ function setupEventListeners() {
         });
     });
     
+    // Window resize
     window.addEventListener('resize', debounce(handleResize, 250));
 }
 
@@ -297,20 +546,21 @@ function handleActionButton(action) {
 function handleViewToggle(e) {
     const viewType = this.getAttribute('data-view');
     
-    viewButtons.forEach(btn => {
+    // Update view buttons state
+    elements.viewButtons.forEach(btn => {
         btn.classList.remove('active');
         btn.setAttribute('aria-pressed', 'false');
     });
     this.classList.add('active');
     this.setAttribute('aria-pressed', 'true');
     
+    // Update current view and render
     currentView = viewType;
-    if (membersContainer) {
-        membersContainer.setAttribute('data-view', viewType);
+    if (elements.membersContainer) {
+        elements.membersContainer.setAttribute('data-view', viewType);
     }
     
     renderMembers();
-    
     announceToScreenReader(`Switched to ${viewType} view`);
 }
 
@@ -327,45 +577,49 @@ function debounce(func, wait) {
 }
 
 function handleSearch() {
-    currentFilters.search = searchInput.value.toLowerCase();
-    if (clearSearchBtn) {
-        clearSearchBtn.style.display = currentFilters.search ? 'flex' : 'none';
+    currentFilters.search = elements.searchInput.value.toLowerCase();
+    if (elements.clearSearchBtn) {
+        elements.clearSearchBtn.style.display = currentFilters.search ? 'flex' : 'none';
     }
     applyFilters();
 }
 
 function clearSearch() {
-    if (searchInput) {
-        searchInput.value = '';
+    if (elements.searchInput) {
+        elements.searchInput.value = '';
         currentFilters.search = '';
-        if (clearSearchBtn) {
-            clearSearchBtn.style.display = 'none';
+        if (elements.clearSearchBtn) {
+            elements.clearSearchBtn.style.display = 'none';
         }
         applyFilters();
-        searchInput.focus();
+        elements.searchInput.focus();
     }
 }
 
 function handleFilterChange() {
-    currentFilters.stream = streamFilter ? streamFilter.value : '';
-    currentFilters.newsType = newsTypeFilter ? newsTypeFilter.value : '';
+    currentFilters.stream = elements.streamFilter ? elements.streamFilter.value : '';
+    currentFilters.newsType = elements.newsTypeFilter ? elements.newsTypeFilter.value : '';
     applyFilters();
 }
 
+// FIXED FILTER FUNCTION - This is the key fix
 function applyFilters() {
     const startTime = performance.now();
     
     filteredMembers = membersData.filter(member => {
+        // Search filter (case-insensitive)
         const searchMatch = !currentFilters.search || 
             member.name.toLowerCase().includes(currentFilters.search) ||
-            (member.newsType && member.newsType.toLowerCase().includes(currentFilters.search)) ||
-            (member.stream && member.stream.toLowerCase().includes(currentFilters.search));
+            member.newsType.toLowerCase().includes(currentFilters.search) ||
+            member.stream.toLowerCase().includes(currentFilters.search) ||
+            (member.newsAbout && member.newsAbout.toLowerCase().includes(currentFilters.search));
         
-        const streamMatch = !currentFilters.stream || 
-            (member.stream && member.stream.toLowerCase() === currentFilters.stream.toLowerCase());
+        // Stream filter (exact match)
+        const streamMatch = !currentFilters.stream || member.stream === currentFilters.stream;
         
+        // News Type filter - FIXED: case-insensitive partial matching
         const newsTypeMatch = !currentFilters.newsType || 
-            (member.newsType && member.newsType.toLowerCase() === currentFilters.newsType.toLowerCase());
+            member.newsType.toLowerCase().includes(currentFilters.newsType.toLowerCase());
         
         return searchMatch && streamMatch && newsTypeMatch;
     });
@@ -378,67 +632,73 @@ function applyFilters() {
 }
 
 function resetAllFilters() {
-    if (searchInput) searchInput.value = '';
-    if (streamFilter) streamFilter.value = '';
-    if (newsTypeFilter) newsTypeFilter.value = '';
+    // Reset input values
+    if (elements.searchInput) elements.searchInput.value = '';
+    if (elements.streamFilter) elements.streamFilter.value = '';
+    if (elements.newsTypeFilter) elements.newsTypeFilter.value = '';
     
+    // Reset filter state
     currentFilters = {
         search: '',
         stream: '',
         newsType: ''
     };
     
-    if (clearSearchBtn) {
-        clearSearchBtn.style.display = 'none';
+    // Update UI
+    if (elements.clearSearchBtn) {
+        elements.clearSearchBtn.style.display = 'none';
     }
     
+    // Apply changes
     applyFilters();
-    
     announceToScreenReader('All filters have been reset');
 }
 
 function updateResultsCount() {
-    if (resultsCount) {
+    if (elements.resultsCount) {
         const count = filteredMembers.length;
         const total = membersData.length;
         
         if (count === total) {
-            resultsCount.textContent = `Showing all ${total} team members`;
+            elements.resultsCount.textContent = `Showing all ${total} team members`;
         } else if (count === 0) {
-            resultsCount.textContent = 'No team members found matching your criteria';
+            elements.resultsCount.textContent = 'No team members found matching your criteria';
         } else {
-            resultsCount.textContent = `Showing ${count} of ${total} team members`;
+            elements.resultsCount.textContent = `Showing ${count} of ${total} team members`;
         }
     }
 }
 
 function updateTotalMembers() {
-    if (totalMembers) {
-        totalMembers.textContent = membersData.length;
+    if (elements.totalMembers) {
+        elements.totalMembers.textContent = membersData.length;
     }
 }
 
 function updateHeaderStats() {
-    if (headerMemberCount) {
-        headerMemberCount.textContent = membersData.length;
+    if (elements.headerMemberCount) {
+        elements.headerMemberCount.textContent = membersData.length;
     }
 }
 
 function renderMembers() {
-    if (!membersContainer) return;
+    if (!elements.membersContainer) return;
     
+    // Handle no results
     if (filteredMembers.length === 0) {
-        membersContainer.innerHTML = '';
-        if (noResultsState) {
-            noResultsState.style.display = 'block';
+        elements.membersContainer.innerHTML = '';
+        if (elements.noResultsState) {
+            elements.noResultsState.style.display = 'block';
         }
         return;
     }
     
-    if (noResultsState) {
-        noResultsState.style.display = 'none';
+    // Hide no results state
+    if (elements.noResultsState) {
+        elements.noResultsState.style.display = 'none';
     }
     
+    // Create and append member cards
     const fragment = document.createDocumentFragment();
     
     filteredMembers.forEach(member => {
@@ -452,8 +712,8 @@ function renderMembers() {
         }
     });
     
-    membersContainer.innerHTML = '';
-    membersContainer.appendChild(fragment);
+    elements.membersContainer.innerHTML = '';
+    elements.membersContainer.appendChild(fragment);
 }
 
 function createMemberCard(member) {
@@ -468,7 +728,7 @@ function createMemberCard(member) {
         card.innerHTML = `
             <div class="member-photo list-view">
                 ${member.photo ? 
-                    `<img src="${member.photo}" alt="${member.name}" class="member-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : 
+                    `<img src="${member.photo}" alt="${member.name}" class="member-photo-img" loading="lazy" onerror="handleImageError(this)">` : 
                     ''
                 }
                 <span class="photo-placeholder" style="${member.photo ? 'display: none;' : ''}">${getInitials(member.name)}</span>
@@ -489,7 +749,7 @@ function createMemberCard(member) {
         card.innerHTML = `
             <div class="member-photo">
                 ${member.photo ? 
-                    `<img src="${member.photo}" alt="${member.name}" class="member-photo-img" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : 
+                    `<img src="${member.photo}" alt="${member.name}" class="member-photo-img" loading="lazy" onerror="handleImageError(this)">` : 
                     ''
                 }
                 <span class="photo-placeholder" style="${member.photo ? 'display: none;' : ''}">${getInitials(member.name)}</span>
@@ -507,6 +767,7 @@ function createMemberCard(member) {
         `;
     }
     
+    // Add click and keyboard events
     card.addEventListener('click', () => showMemberModal(member));
     card.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -516,6 +777,14 @@ function createMemberCard(member) {
     });
     
     return card;
+}
+
+function handleImageError(img) {
+    img.style.display = 'none';
+    const placeholder = img.nextElementSibling;
+    if (placeholder && placeholder.classList.contains('photo-placeholder')) {
+        placeholder.style.display = 'flex';
+    }
 }
 
 function truncateText(text, maxLength) {
@@ -529,13 +798,13 @@ function getInitials(name) {
 }
 
 function showMemberModal(member) {
-    if (!modalContent || !memberModal) return;
+    if (!elements.modalContent || !elements.memberModal) return;
     
     const modalHTML = `
         <div class="modal-body">
             <div class="modal-photo">
                 ${member.photo ? 
-                    `<img src="${member.photo}" alt="${member.name}" class="modal-photo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">` : 
+                    `<img src="${member.photo}" alt="${member.name}" class="modal-photo-img" onerror="handleImageError(this)">` : 
                     ''
                 }
                 <span class="photo-placeholder" style="${member.photo ? 'display: none;' : ''}">${getInitials(member.name)}</span>
@@ -569,15 +838,15 @@ function showMemberModal(member) {
         </div>
     `;
     
-    modalContent.innerHTML = modalHTML;
-    memberModal.style.display = 'block';
+    elements.modalContent.innerHTML = modalHTML;
+    elements.memberModal.style.display = 'block';
     
-    if (closeModal) {
-        closeModal.focus();
+    // Focus management
+    if (elements.closeModal) {
+        elements.closeModal.focus();
     }
     
     document.body.style.overflow = 'hidden';
-    
     announceToScreenReader(`Opened profile for ${member.name}`);
 }
 
@@ -591,7 +860,6 @@ function navigateModal(direction) {
     if (!currentMemberName) return;
     
     const currentIndex = filteredMembers.findIndex(m => m.name === currentMemberName);
-    
     if (currentIndex === -1) return;
     
     let newIndex;
@@ -605,11 +873,12 @@ function navigateModal(direction) {
 }
 
 function closeMemberModal() {
-    if (memberModal) {
-        memberModal.style.display = 'none';
+    if (elements.memberModal) {
+        elements.memberModal.style.display = 'none';
     }
     document.body.style.overflow = '';
     
+    // Return focus to the card that opened the modal
     const activeCard = document.querySelector('.member-card[data-id]:focus');
     if (activeCard) {
         activeCard.focus();
@@ -617,11 +886,13 @@ function closeMemberModal() {
 }
 
 function handleKeyboardNavigation(e) {
-    if (e.key === 'Escape' && memberModal && memberModal.style.display === 'block') {
+    // Close modal on Escape
+    if (e.key === 'Escape' && elements.memberModal && elements.memberModal.style.display === 'block') {
         closeMemberModal();
     }
     
-    if (memberModal && memberModal.style.display === 'block' && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+    // Navigate modal with arrow keys
+    if (elements.memberModal && elements.memberModal.style.display === 'block' && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
         navigateModal(e.key === 'ArrowLeft' ? 'prev' : 'next');
     }
 }
@@ -634,15 +905,15 @@ function scrollToTop() {
 }
 
 function setupIntersectionObserver() {
-    if (!backToTopBtn) return;
+    if (!elements.backToTopBtn) return;
     
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    backToTopBtn.classList.remove('visible');
+                    elements.backToTopBtn.classList.remove('visible');
                 } else {
-                    backToTopBtn.classList.add('visible');
+                    elements.backToTopBtn.classList.add('visible');
                 }
             });
         },
@@ -720,6 +991,7 @@ function sendJoinEmail() {
     window.location.href = 'mailto:naiahcomregentnewtseam101@gmail.com?subject=Interest in Joining News Team&body=Hello, I am interested in joining the Naiahcom High School Regent News Team. Please send me more information.';
 }
 
+// Global functions
 window.showTab = showTab;
 window.resetAllFilters = resetAllFilters;
 window.scrollToTop = scrollToTop;
@@ -728,7 +1000,9 @@ window.navigateModal = navigateModal;
 window.showMemberModal = showMemberModal;
 window.showMeetingInfo = showMeetingInfo;
 window.sendJoinEmail = sendJoinEmail;
+window.handleImageError = handleImageError;
 
+// Error handling and performance monitoring
 window.addEventListener('error', function(e) {
     console.error('Global error caught:', e.error);
 });
@@ -740,14 +1014,11 @@ if ('performance' in window) {
     });
 }
 
+// Global image error handling
 document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('error', function(e) {
         if (e.target.tagName === 'IMG' && e.target.classList.contains('member-photo-img')) {
-            const placeholder = e.target.nextElementSibling;
-            if (placeholder && placeholder.classList.contains('photo-placeholder')) {
-                e.target.style.display = 'none';
-                placeholder.style.display = 'flex';
-            }
+            handleImageError(e.target);
         }
     }, true);
 });
