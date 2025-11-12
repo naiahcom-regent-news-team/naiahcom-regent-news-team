@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naiahcom High School Regent - School News Team</title>
+    <meta name="description" content="Meet the dedicated student journalists of Naiahcom High School Regent news team. Learn about our reporters, their beats, and the stories they cover.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="styles/styles.css" as="style">
+    <link rel="icon" type="image/png" href="assets/images/schoollogo.png">
+    
+    <!-- Fallback for preloaded resources -->
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    
+    <link rel="stylesheet" href="styles/styles.css">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Naiahcom High School Regent News Team",
+        "description": "Student journalism team at Naiahcom High School Regent",
+        "url": "https://naiahcomregent.edu",
+        "logo": "assets/images/schoollogo.png",
+        "memberOf": {
+            "@type": "EducationalOrganization",
+            "name": "Naiahcom High School Regent"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        Skip to main content
+    </a>
+
+    <!-- ARIA live region for announcements -->
+    <div id="aria-announcer" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
+
+    <!-- Header with improved semantics -->
+    <header role="banner" class="site-header">
+        <div class="header-background" aria-hidden="true">
+            <div class="floating-elements">
+                <div class="floating-element element-1">📰</div>
+                <div class="floating-element element-2">🎤</div>
+                <div class="floating-element element-3">📹</div>
+                <div class="floating-element element-4">✏️</div>
+                <div class="floating-element element-5">📸</div>
+                <div class="floating-element element-6">📊</div>
+                <div class="floating-element element-7">📚</div>
+                <div class="floating-element element-8">🏫</div>
+                <div class="floating-element element-9">🎬</div>
+                <div class="floating-element element-10">🎧</div>
+                <div class="floating-element element-11">📝</div>
+                <div class="floating-element element-12">🗞️</div>
+                <div class="floating-element element-13">📡</div>
+                <div class="floating-element element-14">🗣️</div>
+                <div class="floating-element element-15">🖋️</div>
+                <div class="floating-element element-16">🎓</div>
+                <div class="floating-element element-17">📺</div>
+                <div class="floating-element element-18">📷</div>
+                <div class="floating-element element-19">🏆</div>
+                <div class="floating-element element-20">🔔</div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <!-- School Logo with proper lazy loading -->
+                    <img 
+                        src="assets/images/schoollogo.png" 
+                        class="school-logo" 
+                        alt="Naiahcom High School Regent Logo"
+                        loading="lazy"
+                        width="120"
+                        height="120"
+                    >
+                    <div class="logo-placeholder">
+                        <div class="logo-text">
+                            <h1>Naiahcom High School Regent</h1>
+                            <span class="logo-subtitle">Veritas Omnia Vincit - Student Journalism Excellence</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-text">
+                    <h1 class="page-title">
+                        <span class="title-main">Our School News Team</span>
+                        <span class="title-sub">Voices That Matter, Stories That Inspire</span>
+                    </h1>
+                    <p class="welcome-message">Welcome to the Naiahcom High School Regent News Team Page! Meet the voices behind our school stories.</p>
+                    
+                    <!-- Quick Stats in Header -->
+                    <div class="header-stats" role="region" aria-label="Team statistics">
+                        <div class="stat">
+                            <span class="stat-number" id="headerMemberCount">20</span>
+                            <span class="stat-label">Team Members</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">News Beats</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Student Powered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content with improved landmark roles -->
+    <main id="main-content" class="container" role="main">
+        <!-- Horizontal Tabs Navigation -->
+        <section class="tabs-container" aria-label="News team sections">
+            <div class="tabs-header" role="tablist">
+                <button class="tab-button active" 
+                        data-tab="members" 
+                        role="tab" 
+                        aria-selected="true" 
+                        aria-controls="members"
+                        id="tab-members">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    Team Members
+                </button>
+                <button class="tab-button" 
+                        data-tab="about" 
+                        role="tab" 
+                        aria-selected="false" 
+                        aria-controls="about"
+                        id="tab-about">
+                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                    About Us
+                </button>
+                <button class="tab-button" 
+                        data-tab="beats" 
+                        role="tab" 
+                        aria-selected="false" 
+                        aria-controls="beats"
+                        id="tab-beats">
+                    <i class="fas fa-tags" aria-hidden="true"></i>
+                    News Beats
+                </button>
+                <button class="tab-button" 
+                        data-tab="contact" 
+                        role="tab" 
+                        aria-selected="false" 
+                        aria-controls="contact"
+                        id="tab-contact">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    Contact
+                </button>
+            </div>
+            
+            <!-- Tab Content Areas -->
+            <div class="tab-content-wrapper">
+                <!-- Members Tab -->
+                <section id="members" 
+                         class="tab-content active" 
+                         role="tabpanel" 
+                         aria-hidden="false"
+                         aria-labelledby="tab-members">
+                    <!-- Quick Action Bar -->
+                    <section class="action-bar" aria-label="Quick actions">
+                        <div class="action-grid">
+                            <button class="action-btn" onclick="showTab('members')">
+                                <i class="fas fa-search" aria-hidden="true"></i>
+                                <span>Browse Team</span>
+                            </button>
+                            <button class="action-btn" onclick="showRandomMember()">
+                                <i class="fas fa-random" aria-hidden="true"></i>
+                                <span>Meet Random Member</span>
+                            </button>
+                            <button class="action-btn" onclick="showTab('contact')">
+                                <i class="fas fa-user-plus" aria-hidden="true"></i>
+                                <span>Join Our Team</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Stats Section -->
+                    <section class="stats-section" aria-labelledby="stats-heading">
+                        <div class="section-header">
+                            <h2 id="stats-heading">By The Numbers</h2>
+                            <p class="section-subtitle">Our news team at a glance</p>
+                            <div class="section-divider"></div>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon" aria-hidden="true">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-number" id="totalMembers">21</div>
+                                <div class="stat-label">Team Members</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon" aria-hidden="true">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">News Categories</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon" aria-hidden="true">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="stat-number">3</div>
+                                <div class="stat-label">Academic Streams</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon" aria-hidden="true">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <div class="stat-number">57+</div>
+                                <div class="stat-label">Stories Published</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="section-header">
+                        <h2>Find Team Members</h2>
+                        <p class="section-subtitle">Search and filter our dedicated student journalists</p>
+                    </div>
+                    
+                    <!-- Controls Section -->
+                    <div class="controls-section" aria-labelledby="filter-heading">
+                        <div class="controls-grid">
+                            <div class="search-container">
+                                <label for="searchInput" class="search-label">
+                                    <i class="fas fa-search" aria-hidden="true"></i> 
+                                    Search Team Members
+                                </label>
+                                <div class="search-wrapper">
+                                    <i class="fas fa-search search-icon" aria-hidden="true"></i>
+                                    <input type="text" 
+                                           id="searchInput" 
+                                           placeholder="Search by name, role, or stream..."
+                                           aria-describedby="searchHelp">
+                                    <button id="clearSearch" 
+                                            class="clear-btn" 
+                                            aria-label="Clear search" 
+                                            style="display: none;">
+                                        <i class="fas fa-times" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <div id="searchHelp" class="search-help">
+                                    Search for members by name, news category, or academic stream
+                                </div>
+                            </div>
+                            
+                            <div class="filter-group">
+                                <div class="filter-container">
+                                    <label for="streamFilter" class="filter-label">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i> Filter by Stream
+                                    </label>
+                                    <select id="streamFilter" aria-describedby="streamFilterHelp">
+                                        <option value="">All Streams</option>
+                                        <option value="Science">Science</option>
+                                        <option value="Arts">Arts</option>
+                                        <option value="Commercial">Commercial</option>
+                                    </select>
+                                    <div id="streamFilterHelp" class="visually-hidden">
+                                        Filter team members by their academic stream
+                                    </div>
+                                </div>
+                                
+                                <div class="filter-container">
+                                    <label for="newsTypeFilter" class="filter-label">
+                                        <i class="fas fa-newspaper" aria-hidden="true"></i> Filter by Role
+                                    </label>
+                                    <select id="newsTypeFilter" aria-describedby="roleFilterHelp">
+                                        <option value="">All Roles</option>
+                                        <option value="President">President</option>
+                                        <option value="Broadcaster">Broadcaster</option>
+                                        <option value="Media">Media</option>
+                                        <option value="Campus">Campus</option>
+                                        <option value="Sports">Sports</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="International">International</option>
+                                        <option value="Business">Business</option>
+                                        <option value="Local">Local</option>
+                                        <option value="Crime">Crime</option>
+                                        <option value="Camera">Camera</option>
+                                        <option value="Motivational">Motivational</option>
+                                    </select>
+                                    <div id="roleFilterHelp" class="visually-hidden">
+                                        Filter team members by their news reporting role
+                                    </div>
+                                </div>
+                                
+                                <button id="resetFilters" class="reset-btn">
+                                    <i class="fas fa-redo" aria-hidden="true"></i> Reset Filters
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="results-info">
+                            <p id="resultsCount" aria-live="polite">Showing all 21 team members</p>
+                            <div class="view-controls">
+                                <button class="view-btn active" 
+                                        data-view="grid" 
+                                        aria-label="Grid view"
+                                        aria-pressed="true">
+                                    <i class="fas fa-th" aria-hidden="true"></i>
+                                </button>
+                                <button class="view-btn" 
+                                        data-view="list" 
+                                        aria-label="List view"
+                                        aria-pressed="false">
+                                    <i class="fas fa-list" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="members-container">
+                        <div id="membersContainer" class="members-grid" data-view="grid">
+                            <!-- Member cards will be dynamically inserted here -->
+                        </div>
+                        
+                        <div id="loadingIndicator" class="loading-indicator" aria-live="polite">
+                            <div class="spinner" aria-hidden="true"></div>
+                            <p>Loading our amazing team members...</p>
+                        </div>
+
+                        <!-- No Results State -->
+                        <div id="noResults" class="no-results-state" style="display: none;">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <h3>No Team Members Found</h3>
+                            <p>We couldn't find any members matching your search criteria. Try adjusting your filters or search terms.</p>
+                            <button onclick="resetAllFilters()" class="cta-button primary">
+                                <i class="fas fa-redo" aria-hidden="true"></i>
+                                Reset All Filters
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Team Photo Section -->
+                    <div class="team-photo-section" aria-labelledby="team-photo-heading">
+                        <div class="photo-content">
+                            <div class="photo-container">
+                                <img 
+                                    src="assets/images/newsteam.png" 
+                                    alt="Naiahcom High School Regent News Team - Group photo of our student journalists"
+                                    class="team-photo"
+                                    loading="lazy"
+                                    width="800"
+                                    height="450"
+                                >
+                                <div class="photo-overlay">
+                                    <div class="overlay-content">
+                                        <i class="fas fa-users" aria-hidden="true"></i>
+                                        <h3 id="team-photo-heading">Our News Team</h3>
+                                        <p>Dedicated student journalists bringing you the stories that matter</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="photo-caption">
+                            <p><strong>Meet the faces behind the stories!</strong> Our diverse team of student journalists works together to cover campus events, sports, entertainment, and more.</p>
+                            <div class="photo-stats">
+                                <div class="photo-stat">
+                                    <span class="stat-number">21</span>
+                                    <span class="stat-label">Student Journalists</span>
+                                </div>
+                                <div class="photo-stat">
+                                    <span class="stat-number">8</span>
+                                    <span class="stat-label">News Categories</span>
+                                </div>
+                                <div class="photo-stat">
+                                    <span class="stat-number">57+</span>
+                                    <span class="stat-label">Stories Published</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Tab -->
+                <section id="about" 
+                         class="tab-content" 
+                         role="tabpanel" 
+                         aria-hidden="true"
+                         aria-labelledby="tab-about">
+                    <div class="about-section">
+                        <div class="section-header">
+                            <h2>About Our News Team</h2>
+                            <p class="section-subtitle">Dedicated to truth, excellence, and student voices</p>
+                        </div>
+                        <div class="about-content">
+                            <div class="about-text">
+                                <div class="mission-statement">
+                                    <h3>Our Mission</h3>
+                                    <p>At Naiahcom High School Regent, our dedicated student journalists work hard to bring you the latest news from around our school and community. From local events to international stories, our team covers it all with professionalism and enthusiasm.</p>
+                                    <p>We believe in the power of student voices and strive to deliver accurate, engaging, and relevant content to our school community, guided by our school motto: <em>Veritas Omnia Vincit</em> (Truth Conquers All).</p>
+                                </div>
+                                
+                                <div class="values-grid">
+                                    <div class="value-item">
+                                        <i class="fas fa-balance-scale" aria-hidden="true"></i>
+                                        <h4>Integrity</h4>
+                                        <p>We uphold the highest standards of journalistic ethics and truthfulness.</p>
+                                    </div>
+                                    <div class="value-item">
+                                        <i class="fas fa-microphone-alt" aria-hidden="true"></i>
+                                        <h4>Voice</h4>
+                                        <p>We amplify student perspectives and celebrate diverse experiences.</p>
+                                    </div>
+                                    <div class="value-item">
+                                        <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                                        <h4>Innovation</h4>
+                                        <p>We embrace new storytelling methods and digital platforms.</p>
+                                    </div>
+                                    <div class="value-item">
+                                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                                        <h4>Community</h4>
+                                        <p>We serve and connect with our school community through impactful reporting.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="about-image">
+                                <div class="image-placeholder" role="img" aria-label="Students working on news production">
+                                    <div class="rotating-icons" aria-hidden="true">
+                                        <i class="fas fa-camera rotating-icon"></i>
+                                        <i class="fas fa-pen-fancy rotating-icon"></i>
+                                        <i class="fas fa-video rotating-icon"></i>
+                                    </div>
+                                    <i class="fas fa-broadcast-tower main-icon" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Beats Tab -->
+                <section id="beats" 
+                         class="tab-content" 
+                         role="tabpanel" 
+                         aria-hidden="true"
+                         aria-labelledby="tab-beats">
+                    <div class="beats-section">
+                        <div class="section-header">
+                            <h2>Our News Beats</h2>
+                            <p class="section-subtitle">The diverse stories we cover for our school community</p>
+                        </div>
+                        <div class="beats-grid">
+                            <div class="beat-card" data-beat="campus">
+                                <div class="beat-icon" aria-hidden="true">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                                <h3>Campus News</h3>
+                                <p>Daily happenings, events, and announcements from around our school</p>
+                                <span class="beat-count">2 reporters</span>
+                            </div>
+                            <div class="beat-card" data-beat="sports">
+                                <div class="beat-icon" aria-hidden="true">
+                                    <i class="fas fa-running"></i>
+                                </div>
+                                <h3>Sports</h3>
+                                <p>Game coverage, athlete spotlights, and sports achievements</p>
+                                <span class="beat-count">2 reporters</span>
+                            </div>
+                            <div class="beat-card" data-beat="entertainment">
+                                <div class="beat-icon" aria-hidden="true">
+                                    <i class="fas fa-film"></i>
+                                </div>
+                                <h3>Entertainment</h3>
+                                <p>Arts, culture, movies, music, and creative student works</p>
+                                <span class="beat-count">4 reporters</span>
+                            </div>
+                            <div class="beat-card" data-beat="international">
+                                <div class="beat-icon" aria-hidden="true">
+                                    <i class="fas fa-globe-americas"></i>
+                                </div>
+                                <h3>International</h3>
+                                <p>Global perspectives and world events relevant to students</p>
+                                <span class="beat-count">3 reporters</span>
+                            </div>
+                            <div class="beat-card" data-beat="business">
+                                <div class="beat-icon" aria-hidden="true">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Business</h3>
+                                <p>Economic trends, entrepreneurship, and financial literacy</p>
+                                <span class="beat-count">2 reporters</span>
+                            </div>
+                            <div class="beat-card" data-beat="local">
+                                <div class="beat-icon" aria-hidden="true">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h3>Local News</h3>
+                                <p>Community events and stories from our local area</p>
+                                <span class="beat-count">3 reporters</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Tab -->
+                <section id="contact" 
+                         class="tab-content" 
+                         role="tabpanel" 
+                         aria-hidden="true"
+                         aria-labelledby="tab-contact">
+                    <div class="contact-section">
+                        <div class="section-header">
+                            <h2>Get In Touch</h2>
+                            <p class="section-subtitle">Have a story idea or want to join our team?</p>
+                        </div>
+                        <div class="contact-content">
+                            <div class="contact-info">
+                                <h3>Contact Information</h3>
+                                <div class="contact-methods">
+                                    <div class="contact-item">
+                                        <div class="contact-icon" aria-hidden="true">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div class="contact-details">
+                                            <strong>Email Us</strong>
+                                            <a href="mailto:naiahcomregentnewtseam101@gmail.com">naiahcomregentnewtseam101@gmail.com</a>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon" aria-hidden="true">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                        </div>
+                                        <div class="contact-details">
+                                            <strong>Visit Us</strong>
+                                            <span>School Media Center, SSS3 Art</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon" aria-hidden="true">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <div class="contact-details">
+                                            <strong>Weekly Meetings</strong>
+                                            <span>Tuesdays, 11:30 AM - 11:55 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item">
+                                        <div class="contact-icon" aria-hidden="true">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <div class="contact-details">
+                                            <strong>Faculty Advisor</strong>
+                                            <span>Mr Bomah Art</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="join-cta">
+                                <h3>Ready to Join?</h3>
+                                <p>We're always looking for passionate students who want to develop their journalism skills and make a difference in our school community.</p>
+                                <div class="cta-actions">
+                                    <button class="cta-button primary" onclick="showMeetingInfo()">
+                                        <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                                        View Meeting Schedule
+                                    </button>
+                                    <button class="cta-button secondary" onclick="sendJoinEmail()">
+                                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                                        Email to Join
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Member Detail Modal -->
+    <div id="memberModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-overlay" tabindex="-1"></div>
+        <div class="modal-content">
+            <button class="close" aria-label="Close member details">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Meeting Info Modal -->
+    <div id="meetingModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="meetingTitle">
+        <div class="modal-overlay" tabindex="-1"></div>
+        <div class="modal-content">
+            <button class="close" aria-label="Close meeting information">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+            <div class="modal-body">
+                <h2 id="meetingTitle">Weekly Meeting Schedule</h2>
+                <div class="meeting-schedule">
+                    <div class="meeting-day">
+                        <h3>Tuesday Meetings</h3>
+                        <p><strong>Time:</strong> 11:30 AM - 11:55 AM</p>
+                        <p><strong>Location:</strong> School Media Center</p>
+                        <p><strong>Focus:</strong> Story planning, team updates, skill workshops</p>
+                    </div>
+                </div>
+                <p class="meeting-note">
+                    <i class="fas fa-info-circle" aria-hidden="true"></i>
+                    New members are always welcome! No prior experience required.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Footer with improved semantics -->
+    <footer role="contentinfo" class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Naiahcom High School Regent</h3>
+                    <p class="footer-description">Empowering student voices through quality journalism. Bringing you the stories that matter from our school community and beyond.</p>
+                    <p class="footer-motto"><em>Veritas Omnia Vincit</em></p>
+                    <div class="footer-stats">
+                        <div class="footer-stat">
+                            <span class="stat-number">21</span>
+                            <span class="stat-label">Members</span>
+                        </div>
+                        <div class="footer-stat">
+                            <span class="stat-number">2025</span>
+                            <span class="stat-label">Established</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showTab('members'); return false;">Team Members</a></li>
+                        <li><a href="#" onclick="showTab('about'); return false;">About Us</a></li>
+                        <li><a href="#" onclick="showTab('beats'); return false;">News Beats</a></li>
+                        <li><a href="#" onclick="showTab('contact'); return false;">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>News Categories</h4>
+                    <div class="category-tags">
+                        <span class="category-tag">Campus News</span>
+                        <span class="category-tag">Sports</span>
+                        <span class="category-tag">Entertainment</span>
+                        <span class="category-tag">International</span>
+                        <span class="category-tag">Business</span>
+                        <span class="category-tag">Local News</span>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="footer-social">
+                        
+                        
+                        <a href="mailto:naiahcomregentnewtseam101@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="newsletter-signup">
+                        <p>Get our latest stories</p>
+                        <div class="newsletter-form">
+                            <input type="email" 
+                                   placeholder="Your email" 
+                                   aria-label="Email for updates"
+                                   aria-describedby="newsletterHelp">
+                            <button type="button" aria-label="Subscribe">
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div id="newsletterHelp" class="visually-hidden">
+                            Enter your email to subscribe to our newsletter
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 Naiahcom High School Regent News Team. All rights reserved.</p>
+                    <p>Proudly created by students, for the school.</p>
+                </div>
+                <div class="footer-credits">
+                    <p>Made with <i class="fas fa-heart" aria-hidden="true"></i> for our school community</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script with defer attribute for better performance -->
+    <script src="script/script.js" defer></script>  
+</body>
+</html>

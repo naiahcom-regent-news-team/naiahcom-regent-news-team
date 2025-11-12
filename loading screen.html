@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School News Team | Loading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="styles/loading_stlyes.css">
+   <link rel="icon" type="image/png" href="assets/images/schoollogo.png">
+</head>
+<body>
+    <div class="bg-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    
+    <div class="loading-container">
+        <div class="logo-container">
+            <div class="logo-frame">
+                <!-- Replace with your actual logo path -->
+                <img src="assets/images/schoollogo.png" alt="School Logo" class="logo">
+            </div>
+        </div>
+        
+        <h1 class="loading-title">School News Team</h1>
+        <p class="loading-subtitle">Bringing you the latest updates from our campus</p>
+        
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
+            <div class="progress-percent" id="progressPercent">0%</div>
+        </div>
+        
+        <p class="loading-text" id="loadingText">Initializing news portal...</p>
+        
+        <div class="pulse-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        
+        <div class="news-ticker" id="newsTicker">
+            <i class="fas fa-newspaper"></i>
+            <span id="tickerText">Preparing your news experience...</span>
+        </div>
+    </div>
+  <script type="module" src="script/loading.js"></script>
+
+</body>
+</html>

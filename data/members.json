@@ -1,0 +1,247 @@
+[
+  {
+    "id": "philippa",
+    "name": "Philippa",
+    "class": "SSS3",
+    "stream": "Arts",
+    "newsType": "President",
+    "newsAbout": "Philippa leads the press team with confidence and heart. Her calm leadership and dedication to teamwork make her a respected role model who brings out the best in everyone around her.",
+    "photo": "assets/images/phillipa.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+  {
+    "id": "favour",
+    "name": "Favour",
+    "class": "SSS2",
+    "stream": "Science",
+    "newsType": "Vice President & Local News Reporter",
+    "newsAbout": "Favour supports the President and contributes to local news coverage. Her dedication and growing leadership skills make her a promising future leader of the team.",
+    "photo": "assets/images/favour.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+  {
+    "id": "patricia",
+    "name": "Patricia",
+    "class": "SSS3",
+    "stream": "Arts",
+    "newsType": "Motivational Speaker & Finance Secretary",
+    "newsAbout": "Patricia balances creativity and organization in her dual role. She inspires her peers with thoughtful talks and manages the team's finances responsibly and efficiently.",
+    "photo": "assets/images/patricia.jpg",
+    "pronouns": "she/her",
+    "tone": "A"
+  },
+  {
+    "id": "elizabeth",
+    "name": "Elizabeth",
+    "class": "SSS2",
+    "stream": "Arts",
+    "newsType": "Entertainment Reporter & Assistant Finance Secretary",
+    "newsAbout": "Elizabeth balances her love for entertainment with a sharp sense of organization. She reports with creativity and helps manage the team's finances effectively.",
+    "photo": "assets/images/elizabeth.jpg",
+    "pronouns": "she/her",
+    "tone": "A"
+  },
+  {
+    "id": "bradley",
+    "name": "Bradley",
+    "class": "SSS3",
+    "stream": "Arts",
+    "newsType": "Head of Media & Video Production",
+    "newsAbout": "Bradley leads the media unit with vision and creativity. His talent for video production and storytelling sets a high standard for the team's visual work.",
+    "photo": "assets/images/bradley.jpg",
+    "pronouns": "he/him",
+    "tone": "B"
+  },
+  {
+    "id": "nyamia",
+    "name": "Nyamia",
+    "class": "SSS2",
+    "stream": "Science",
+    "newsType": "Vice Head of Media & Video Production",
+    "newsAbout": "Nyamia covers safety and awareness topics that keep students informed. His steady presence and sense of responsibility make him a dependable part of the team.",
+    "photo": "assets/images/nyamia.jpg",
+    "pronouns": "he/him",
+    "tone": "A"
+  },
+  {
+    "id": "lauren",
+    "name": "Lauren",
+    "class": "SSS3",
+    "stream": "Science",
+    "newsType": "Editor & Media Specialist",
+    "newsAbout": "Lauren manages the digital side of the press team with creativity and skill. He designed and built the team's official website, TypeShift, using his technical talents to strengthen the team's online presence.",
+    "photo": "assets/images/laurens.png",
+    "pronouns": "he/him",
+    "tone": "A"
+  },
+  {
+    "id": "veronica",
+    "name": "Veronica",
+    "class": "SSS2",
+    "stream": "Arts",
+    "newsType": "Lead Broadcaster",
+    "newsAbout": "Veronica is the clear and confident voice of the school. Her professionalism behind the mic and her cheerful energy make every broadcast engaging and enjoyable to listen to.",
+    "photo": "assets/images/veronica.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+  {
+    "id": "rodney",
+    "name": "Rodney",
+    "class": "SSS3",
+    "stream": "Science",
+    "newsType": "Campus News Reporter",
+    "newsAbout": "Rodney has a great eye for stories and a natural curiosity about student life. His approachable attitude and clear reporting make him one of the most trusted voices in the press team.",
+    "photo": "assets/images/rodney.jpg",
+    "pronouns": "he/him",
+    "tone": "B"
+  },
+  {
+    "id": "seriki",
+    "name": "Seriki",
+    "class": "SSS3",
+    "stream": "Science",
+    "newsType": "Local News Correspondent",
+    "newsAbout": "Seriki reports on school updates and announcements with accuracy and care. Her approachable manner and sense of responsibility make her a dependable team member.",
+    "photo": "assets/images/seriki.jpg",
+    "pronouns": "she/her",
+    "tone": "A"
+  },
+  {
+    "id": "momoh",
+    "name": "Momoh",
+    "class": "SSS3",
+    "stream": "Science",
+    "newsType": "Local Sports Correspondent",
+    "newsAbout": "Momoh brings enthusiasm and insight to every sports story. His passion for teamwork and athletics helps him deliver exciting and accurate coverage of school competitions.",
+    "photo": "assets/images/momoh.jpg",
+    "pronouns": "he/him",
+    "tone": "B"
+  },
+  {
+    "id": "moriba",
+    "name": "Moriba",
+    "class": "SSS3",
+    "stream": "Science",
+    "newsType": "International Sports Analyst",
+    "newsAbout": "Moriba takes sports journalism to a thoughtful level with his detailed analysis and love for global competition. He enjoys helping others appreciate the skill and strategy behind every match.",
+    "photo": "assets/images/moriba.jpg",
+    "pronouns": "he/him",
+    "tone": "A"
+  },
+  {
+    "id": "bawoh",
+    "name": "Bawoh",
+    "class": "SSS3",
+    "stream": "Arts",
+    "newsType": "International Affairs Correspondent",
+    "newsAbout": "Bawoh covers global issues with insight and clarity. Her thoughtful approach helps students connect international news to their everyday understanding of the world.",
+    "photo": "assets/images/bawoh.jpg",
+    "pronouns": "she/her",
+    "tone": "A"
+  },
+  {
+    "id": "fanta",
+    "name": "Fanta",
+    "class": "SSS2",
+    "stream": "Science",
+    "newsType": "Global News Correspondent",
+    "newsAbout": "Fanta reports on global news that matters to young people. Her calm delivery and thoughtful storytelling make her pieces informative and inspiring.",
+    "photo": "assets/images/fanta.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+  {
+    "id": "augustine",
+    "name": "Augustine",
+    "class": "SSS3",
+    "stream": "Arts",
+    "newsType": "Entertainment & Culture Reporter",
+    "newsAbout": "Augustine keeps the press team connected to arts and culture. His curiosity and sense of creativity help him share stories that reflect students' interests and school spirit.",
+    "photo": "assets/images/augustine.jpg",
+    "pronouns": "he/him",
+    "tone": "A"
+  },
+  {
+    "id": "isha",
+    "name": "Isha",
+    "class": "SSS2",
+    "stream": "Science",
+    "newsType": "Entertainment Correspondent",
+    "newsAbout": "Isha brings positivity and confidence to her role as Entertainment Correspondent. She enjoys covering events that showcase student talent and creativity.",
+    "photo": "assets/images/ishu.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+  {
+    "id": "stellina",
+    "name": "Stellina",
+    "class": "SSS2",
+    "stream": "Arts",
+    "newsType": "International Culture Reporter",
+    "newsAbout": "Stellina reports on culture and traditions from around the world. Her curiosity and appreciation for diversity make her stories both informative and enjoyable.",
+    "photo": "assets/images/stellina.jpg",
+    "pronouns": "she/her",
+    "tone": "A"
+  },
+  {
+    "id": "papah",
+    "name": "Papah",
+    "class": "SSS3",
+    "stream": "Arts",
+    "newsType": "Literary & Creative Arts Editor",
+    "newsAbout": "Papah is passionate about creative writing and poetry. His dedication to helping others express themselves makes the school's literary section one of the press team's highlights.",
+    "photo": "assets/images/papah.jpg",
+    "pronouns": "he/him",
+    "tone": "B"
+  },
+  {
+    "id": "william",
+    "name": "William",
+    "class": "SSS3",
+    "stream": "Arts",
+    "newsType": "Business & Economics Reporter",
+    "newsAbout": "William explores financial and business topics with interest and focus. His reports encourage students to think about entrepreneurship and smart decision-making.",
+    "photo": "assets/images/william.jpg",
+    "pronouns": "he/him",
+    "tone": "A"
+  },
+  {
+    "id": "daniella",
+    "name": "Daniella",
+    "class": "SSS3",
+    "stream": "Commercial",
+    "newsType": "Business & Finance Reporter",
+    "newsAbout": "Daniella enjoys highlighting creative business ideas and achievements. Her professionalism and clear writing bring business news to life for students and staff alike.",
+    "photo": "assets/images/daniella.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+  {
+    "id": "augusta",
+    "name": "Augusta",
+    "class": "SSS1",
+    "stream": "Arts",
+    "newsType": "Media & Production Assistant",
+    "newsAbout": "Augusta assists the media team with enthusiasm and commitment. Her willingness to learn and contribute makes her one of the most dependable younger members of the club.",
+    "photo": "assets/images/augusta.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+
+
+  {
+    "id": "mr-bomah",
+    "name": "Mr. Bomah",
+    "class": "Faculty",
+    "stream": "Arts",
+    "newsType": "Faculty Advisor",
+    "newsAbout": "Mr. Bomah is the heart and soul of our press team. His dedication goes far beyond the classroom; he is a true mentor who invests deeply in each student's growth. With a perfect blend of wisdom and warmth, he creates an environment where we feel safe to experiment, learn, and excel. His encouragement is a constant source of motivation, and his belief in us often surpasses our belief in ourselves. The team's spirit and success are a direct reflection of his passionate leadership.",
+      "photo": "assets/images/mr-bomah.jpg",
+    "pronouns": "he/him",
+    "tone": "A"
+  }
+
+]
