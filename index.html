@@ -102,12 +102,12 @@
                     <!-- Quick Stats in Header -->
                     <div class="header-stats" role="region" aria-label="Team statistics">
                         <div class="stat">
-                            <span class="stat-number" id="headerMemberCount">20</span>
+                            <span class="stat-number" id="headerMemberCount">22</span>
                             <span class="stat-label">Team Members</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">8</span>
-                            <span class="stat-label">News Beats</span>
+                            <span class="stat-number">10+</span>
+                            <span class="stat-label">News Roles</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">100%</span>
@@ -200,15 +200,15 @@
                                 <div class="stat-icon" aria-hidden="true">
                                     <i class="fas fa-users"></i>
                                 </div>
-                                <div class="stat-number" id="totalMembers">21</div>
+                                <div class="stat-number" id="totalMembers">22</div>
                                 <div class="stat-label">Team Members</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-icon" aria-hidden="true">
                                     <i class="fas fa-newspaper"></i>
                                 </div>
-                                <div class="stat-number">8</div>
-                                <div class="stat-label">News Categories</div>
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">News Roles</div>
                             </div>
                             <div class="stat-card">
                                 <div class="stat-icon" aria-hidden="true">
@@ -268,6 +268,8 @@
                                         <option value="Science">Science</option>
                                         <option value="Arts">Arts</option>
                                         <option value="Commercial">Commercial</option>
+                                        <option value="Commerce">Commerce</option>
+                                        <option value="Faculty">Faculty</option>
                                     </select>
                                     <div id="streamFilterHelp" class="visually-hidden">
                                         Filter team members by their academic stream
@@ -281,17 +283,19 @@
                                     <select id="newsTypeFilter" aria-describedby="roleFilterHelp">
                                         <option value="">All Roles</option>
                                         <option value="President">President</option>
+                                        <option value="Vice President">Vice President</option>
+                                        <option value="Motivational Speaker">Motivational Speaker</option>
+                                        <option value="Finance Secretary">Finance Secretary</option>
+                                        <option value="Head of Media">Head of Media</option>
+                                        <option value="Video Production">Video Production</option>
+                                        <option value="Editor">Editor</option>
+                                        <option value="Media Specialist">Media Specialist</option>
                                         <option value="Broadcaster">Broadcaster</option>
-                                        <option value="Media">Media</option>
-                                        <option value="Campus">Campus</option>
-                                        <option value="Sports">Sports</option>
-                                        <option value="Entertainment">Entertainment</option>
-                                        <option value="International">International</option>
-                                        <option value="Business">Business</option>
-                                        <option value="Local">Local</option>
-                                        <option value="Crime">Crime</option>
-                                        <option value="Camera">Camera</option>
-                                        <option value="Motivational">Motivational</option>
+                                        <option value="Reporter">Reporter</option>
+                                        <option value="Correspondent">Correspondent</option>
+                                        <option value="Analyst">Analyst</option>
+                                        <option value="Assistant">Assistant</option>
+                                        <option value="Faculty Advisor">Faculty Advisor</option>
                                     </select>
                                     <div id="roleFilterHelp" class="visually-hidden">
                                         Filter team members by their news reporting role
@@ -305,7 +309,7 @@
                         </div>
                         
                         <div class="results-info">
-                            <p id="resultsCount" aria-live="polite">Showing all 21 team members</p>
+                            <p id="resultsCount" aria-live="polite">Showing all 22 team members</p>
                             <div class="view-controls">
                                 <button class="view-btn active" 
                                         data-view="grid" 
@@ -370,12 +374,12 @@
                             <p><strong>Meet the faces behind the stories!</strong> Our diverse team of student journalists works together to cover campus events, sports, entertainment, and more.</p>
                             <div class="photo-stats">
                                 <div class="photo-stat">
-                                    <span class="stat-number">21</span>
-                                    <span class="stat-label">Student Journalists</span>
+                                    <span class="stat-number">22</span>
+                                    <span class="stat-label">Team Members</span>
                                 </div>
                                 <div class="photo-stat">
-                                    <span class="stat-number">8</span>
-                                    <span class="stat-label">News Categories</span>
+                                    <span class="stat-number">10+</span>
+                                    <span class="stat-label">News Roles</span>
                                 </div>
                                 <div class="photo-stat">
                                     <span class="stat-number">57+</span>
@@ -634,7 +638,7 @@
                     <p class="footer-motto"><em>Veritas Omnia Vincit</em></p>
                     <div class="footer-stats">
                         <div class="footer-stat">
-                            <span class="stat-number">21</span>
+                            <span class="stat-number">22</span>
                             <span class="stat-label">Members</span>
                         </div>
                         <div class="footer-stat">
@@ -666,8 +670,6 @@
                 <div class="footer-section">
                     <h4>Connect With Us</h4>
                     <div class="footer-social">
-                        
-                        
                         <a href="mailto:naiahcomregentnewtseam101@gmail.com" class="social-link" aria-label="Email">
                             <i class="fas fa-envelope" aria-hidden="true"></i>
                         </a>
@@ -702,6 +704,50 @@
     </footer>
 
     <!-- Script with defer attribute for better performance -->
-    <script src="script/script.js" defer></script>  
+    <script src="script/script.js" defer></script>
+    
+    <!-- Updated JavaScript for better filtering -->
+    <script>
+        // Update the applyFilters function to handle partial matches
+        function applyFilters() {
+            const startTime = performance.now();
+            
+            filteredMembers = membersData.filter(member => {
+                // Search filter (case-insensitive)
+                const searchMatch = !currentFilters.search || 
+                    (member.name && member.name.toLowerCase().includes(currentFilters.search)) ||
+                    (member.newsType && member.newsType.toLowerCase().includes(currentFilters.search)) ||
+                    (member.stream && member.stream.toLowerCase().includes(currentFilters.search)) ||
+                    (member.newsAbout && member.newsAbout.toLowerCase().includes(currentFilters.search));
+                
+                // Stream filter (exact match)
+                const streamMatch = !currentFilters.stream || 
+                    (member.stream && member.stream === currentFilters.stream);
+                
+                // News Type filter (partial match - checks if the role contains the filter value)
+                const newsTypeMatch = !currentFilters.newsType || 
+                    (member.newsType && member.newsType.includes(currentFilters.newsType));
+                
+                return searchMatch && streamMatch && newsTypeMatch;
+            });
+            
+            renderMembers();
+            updateResultsCount();
+            
+            const endTime = performance.now();
+            console.log(`Filtering took ${(endTime - startTime).toFixed(2)} milliseconds`);
+        }
+        
+        // Debug function to check data
+        function debugFilters() {
+            console.log('=== FILTER DEBUG INFO ===');
+            const allStreams = [...new Set(membersData.map(m => m.stream).filter(Boolean))];
+            const allNewsTypes = [...new Set(membersData.map(m => m.newsType).filter(Boolean))];
+            
+            console.log('Streams in data:', allStreams);
+            console.log('News Types in data:', allNewsTypes);
+            console.log('Current filters:', currentFilters);
+        }
+    </script>
 </body>
 </html>
