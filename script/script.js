@@ -160,17 +160,18 @@ async function loadMembersData() {
             "pronouns": "she/her",
             "tone": "B"
           },
-          {
-            "id": "favour",
-            "name": "Favour",
+  {
+            "id": "veronica",
+            "name": "Veronica",
             "class": "SSS2",
-            "stream": "Science",
-            "newsType": "Vice President & Local News Reporter",
-            "newsAbout": "Favour supports the President and contributes to local news coverage. Her dedication and growing leadership skills make her a promising future leader of the team.",
-            "photo": "assets/images/favour.jpg",
+            "stream": "Arts",
+            "newsType": "Vice President & Lead Broadcaster",
+            "newsAbout": "Veronica’s confident voice and cheerful spirit make her the heart of every broadcast. As Vice President, she supports the team with leadership and creativity, helping guide projects and ensuring the press team presents its best work.",
+            "photo": "assets/images/veronica.jpg",
             "pronouns": "she/her",
             "tone": "B"
           },
+         
           {
             "id": "patricia",
             "name": "Patricia",
@@ -226,14 +227,14 @@ async function loadMembersData() {
             "pronouns": "he/him",
             "tone": "A"
           },
-          {
-            "id": "veronica",
-            "name": "Veronica",
+         {
+            "id": "favour",
+            "name": "Favour",
             "class": "SSS2",
-            "stream": "Arts",
-            "newsType": "Lead Broadcaster",
-            "newsAbout": "Veronica is the clear and confident voice of the school. Her professionalism behind the mic and her cheerful energy make every broadcast engaging and enjoyable to listen to.",
-            "photo": "assets/images/veronica.jpg",
+            "stream": "Science",
+            "newsType": "Local News Reporter",
+            "newsAbout": "Favour contributes to local news coverage with dedication and reliability. Her strong work ethic and growing reporting skills make her a promising member of the team.",
+            "photo": "assets/images/favour.jpg",
             "pronouns": "she/her",
             "tone": "B"
           },
@@ -392,7 +393,7 @@ async function loadMembersData() {
             "tone": "A"
           }
         ];
-        
+
         // Validate and normalize data
         if (!Array.isArray(membersData)) {
             throw new Error('Invalid data format: expected array');
@@ -1022,3 +1023,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, true);
 });
+
