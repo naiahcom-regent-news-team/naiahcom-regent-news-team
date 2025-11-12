@@ -11,12 +11,23 @@
     "tone": "B"
   },
   {
+    "id": "veronica",
+    "name": "Veronica",
+    "class": "SSS2",
+    "stream": "Arts",
+    "newsType": "Vice President & Lead Broadcaster",
+    "newsAbout": "Veronica’s confident voice and cheerful spirit make her the heart of every broadcast. As Vice President, she supports the team with leadership and creativity, ensuring every project shines with professionalism and warmth.",
+    "photo": "assets/images/veronica.jpg",
+    "pronouns": "she/her",
+    "tone": "B"
+  },
+  {
     "id": "favour",
     "name": "Favour",
     "class": "SSS2",
     "stream": "Science",
-    "newsType": "Vice President & Local News Reporter",
-    "newsAbout": "Favour supports the President and contributes meaningfully to local news coverage. Her dedication, reliability, and growing leadership skills make her a promising young leader admired by her peers.",
+    "newsType": "Local News Reporter",
+    "newsAbout": "Favour contributes meaningfully to local news coverage. Her dedication, reliability, and growing leadership skills make her a promising young journalist admired by her peers.",
     "photo": "assets/images/favour.jpg",
     "pronouns": "she/her",
     "tone": "B"
@@ -75,17 +86,6 @@
     "photo": "assets/images/laurens.png",
     "pronouns": "he/him",
     "tone": "A"
-  },
-  {
-    "id": "veronica",
-    "name": "Veronica",
-    "class": "SSS2",
-    "stream": "Arts",
-    "newsType": "Lead Broadcaster",
-    "newsAbout": "Veronica’s confident voice and cheerful spirit make her the heart of every broadcast. Her professionalism and charm bring warmth and excitement to the school’s on-air programs.",
-    "photo": "assets/images/veronica.jpg",
-    "pronouns": "she/her",
-    "tone": "B"
   },
   {
     "id": "rodney",
