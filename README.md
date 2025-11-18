@@ -21,7 +21,7 @@ It highlights school events, interviews, opinion pieces, and much more.
 
 ## 🌐 Visit Us
 Once published via GitHub Pages, our website will be available at:  
-👉 **https://naiahcom.github.io/naiahcom-regent-news-team/**
+👉 **https://naiahcom-regent-news-team.github.io/naiahcom-regent-news-team/loading%20screen.html**
 
 ## 🛠️ Built With
 - **HTML5**, **CSS3**, and **JavaScript**  
