@@ -265,7 +265,7 @@ async function loadMembersData() {
             "name": "Momoh",
             "class": "SSS3",
             "stream": "Science",
-            "newsType": "Local Sports Correspondent",
+            "newsType": "Head of Sports news",
             "newsAbout": "Momoh brings enthusiasm and insight to every sports story. His passion for teamwork and athletics helps him deliver exciting and accurate coverage of school competitions.",
             "photo": "assets/images/momoh.jpg",
             "pronouns": "he/him",
@@ -276,7 +276,7 @@ async function loadMembersData() {
             "name": "Moriba",
             "class": "SSS3",
             "stream": "Science",
-            "newsType": "International Sports Analyst",
+            "newsType": "Sports Analyst",
             "newsAbout": "Moriba takes sports journalism to a thoughtful level with his detailed analysis and love for global competition. He enjoys helping others appreciate the skill and strategy behind every match.",
             "photo": "assets/images/moriba.jpg",
             "pronouns": "he/him",
@@ -1023,5 +1023,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, true);
 });
+
 
 
