@@ -114,7 +114,7 @@
     "name": "Momoh",
     "class": "SSS3",
     "stream": "Science",
-    "newsType": "Local Sports Correspondent",
+    "newsType": "Head of Sports  ",
     "newsAbout": "Momoh brings enthusiasm and insight to every sports report. His love for athletics and team spirit make his coverage both exciting and deeply engaging for readers and listeners alike.",
     "photo": "assets/images/momoh.jpg",
     "pronouns": "he/him",
@@ -125,7 +125,7 @@
     "name": "Moriba",
     "class": "SSS3",
     "stream": "Science",
-    "newsType": "International Sports Analyst",
+    "newsType": " Sports news Analyst",
     "newsAbout": "Moriba brings a thoughtful and analytical touch to sports journalism. His detailed insights and global perspective help audiences appreciate the strategy and skill behind every game.",
     "photo": "assets/images/moriba.jpg",
     "pronouns": "he/him",
@@ -242,3 +242,4 @@
     "tone": "A"
   }
 ]
+
