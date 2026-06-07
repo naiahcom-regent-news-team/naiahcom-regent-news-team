@@ -3,50 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School News Team | Loading</title>
+    <title>Naiahcom High School | Regent Press Team</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <link rel="stylesheet" href="styles/loading_stlyes.css">
-   <link rel="icon" type="image/png" href="assets/images/schoollogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/schoollogo.png">
+    <link rel="stylesheet" href="styles/loading_stlyes.css">
 </head>
 <body>
-    <div class="bg-particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-    
-    <div class="loading-container">
-        <div class="logo-container">
-            <div class="logo-frame">
-                <!-- Replace with your actual logo path -->
-                <img src="assets/images/schoollogo.png" alt="School Logo" class="logo">
+
+    <div class="bg"></div>
+    <div class="scanlines"></div>
+    <div class="particles" id="particles"></div>
+    <div class="flash" id="flash"></div>
+
+    <div class="loading-container" role="status" aria-live="polite" aria-label="Loading Naiahcom Regent Press Team portal">
+
+        <!-- Top badge bar -->
+        <div class="badge-bar">
+            <div class="badge"><div class="dot-live"></div> Live Portal</div>
+            <div class="badge-line"></div>
+            <div class="badge"><i class="fas fa-shield-halved" style="color:var(--blue-bright);margin-right:5px;font-size:0.7rem"></i>Regent Press</div>
+        </div>
+
+        <!-- Logo -->
+        <div class="logo-wrap">
+            <div class="logo-ring">
+                <div class="logo-inner">
+                    <img src="assets/images/schoollogo.png" alt="Naiahcom High School Logo" class="logo"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                    <span class="logo-fallback" style="display:none"><i class="fas fa-graduation-cap"></i></span>
+                </div>
             </div>
         </div>
-        
-        <h1 class="loading-title">School News Team</h1>
-        <p class="loading-subtitle">Bringing you the latest updates from our campus</p>
-        
-        <div class="loading-bar-container">
-            <div class="loading-bar" id="loadingBar"></div>
-            <div class="progress-percent" id="progressPercent">0%</div>
-        </div>
-        
-        <p class="loading-text" id="loadingText">Initializing news portal...</p>
-        
-        <div class="pulse-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-        
-        <div class="news-ticker" id="newsTicker">
-            <i class="fas fa-newspaper"></i>
-            <span id="tickerText">Preparing your news experience...</span>
-        </div>
-    </div>
-  <script type="module" src="script/loading.js"></script>
 
+        <!-- School name -->
+        <div class="name-block">
+            <div class="school-name"><span class="highlight">Naiahcom</span> High School</div>
+            <div class="team-label">Regent <span>Press</span> Team &nbsp;·&nbsp; Directory</div>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider">
+            <div class="line"></div>
+            <div class="crest"><i class="fas fa-newspaper" style="margin-right:6px;font-size:0.55rem"></i>Est. Campus Press</div>
+            <div class="line rev"></div>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-section">
+            <div class="progress-meta">
+                <span class="loading-text" id="loadingText">Initializing portal…</span>
+                <span class="progress-percent" id="progressPercent">0%</span>
+            </div>
+
+            <div class="bar-shell" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+
+            <div class="step-track" id="stepTrack" aria-hidden="true">
+                <!-- filled by JS -->
+            </div>
+        </div>
+
+        <!-- Ticker -->
+        <div class="ticker">
+            <div class="ticker-label"><i class="fas fa-signal" style="margin-right:5px"></i>PRESS</div>
+            <div class="ticker-scroll">
+                <span class="ticker-text" id="tickerText">Welcome to the Naiahcom High School Regent Press Team Directory — Connecting you to campus news and updates.</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-row">
+            <div class="pulse-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="footer-brand"><strong>Naiahcom</strong> · Regent Press &copy; <span id="yr"></span></div>
+        </div>
+
+    </div>
+
+    <script src="script/loading.js"></script>
 </body>
 </html>
