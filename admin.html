@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Team Admin — Member Directory</title>
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LOCK SCREEN — shown until password is entered
+════════════════════════════════════════════════════════════ -->
+<div id="lockScreen">
+    <div class="lock-card">
+        <p class="lock-masthead">Naiahcom Regent</p>
+        <h1 class="lock-title">News Team Admin</h1>
+        <p class="lock-sub">Staff access only. Enter your password to continue.</p>
+
+        <hr class="lock-rule">
+
+        <label for="passwordInput" class="lock-label">Admin password</label>
+
+        <div id="loginError" class="lock-error hidden" role="alert" aria-live="polite">
+            Incorrect password. Please try again.
+        </div>
+
+        <div class="lock-input-wrap">
+            <input
+                type="password"
+                id="passwordInput"
+                class="lock-input"
+                placeholder="Enter password…"
+                autocomplete="current-password"
+                aria-label="Admin password"
+            >
+            <button
+                class="lock-eye"
+                type="button"
+                id="eyeBtn"
+                aria-label="Toggle password visibility"
+                onclick="
+                    const inp = document.getElementById('passwordInput');
+                    inp.type = inp.type === 'password' ? 'text' : 'password';
+                    this.textContent = inp.type === 'password' ? '👁' : '🙈';
+                "
+            >👁</button>
+        </div>
+
+        <button id="loginBtn" class="lock-btn" type="button">
+            Enter admin panel →
+        </button>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     ADMIN APP — hidden until authenticated
+════════════════════════════════════════════════════════════ -->
+<div id="adminApp" class="hidden">
+
+    <!-- Header -->
+    <header class="app-header" role="banner">
+        <div class="header-brand">
+            <span class="brand-name">News Team</span>
+            <span class="brand-tag">Admin Panel</span>
+        </div>
+        <button id="logoutBtn" class="logout-btn" type="button" aria-label="Sign out of admin panel">
+            Sign out
+        </button>
+    </header>
+
+    <!-- Tab navigation -->
+    <nav class="tab-nav" role="tablist" aria-label="Admin sections">
+
+        <button class="tab-btn active" data-tab="members" role="tab" aria-selected="true" aria-controls="panel-members">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Members
+        </button>
+
+        <button class="tab-btn" data-tab="form" role="tab" aria-selected="false" aria-controls="panel-form">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            Add / Edit
+        </button>
+
+        <button class="tab-btn" data-tab="export" role="tab" aria-selected="false" aria-controls="panel-export">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="8 17 12 21 16 17"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.88 18.09A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.29"/></svg>
+            Export code
+        </button>
+
+    </nav>
+
+    <!-- Main content -->
+    <main class="app-main" id="mainContent">
+
+        <!-- ── Panel: Members list ───────────────────────── -->
+        <section id="panel-members" class="tab-panel active" role="tabpanel" aria-labelledby="tab-members">
+
+            <div class="panel-header">
+                <h2 class="panel-title">Team members</h2>
+                <button id="addMemberBtn" class="btn btn-accent" type="button" aria-label="Add a new team member">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Add member
+                </button>
+            </div>
+
+            <div class="toolbar" role="search" aria-label="Filter members">
+                <div class="search-wrap">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input
+                        type="search"
+                        id="searchInput"
+                        class="search-input"
+                        placeholder="Search by name, role, class…"
+                        aria-label="Search team members"
+                        autocomplete="off"
+                    >
+                </div>
+                <select id="filterStream" class="filter-select" aria-label="Filter by stream">
+                    <option value="">All streams</option>
+                    <option value="Arts">Arts</option>
+                    <option value="Science">Science</option>
+                    <option value="Commercial">Commercial</option>
+                    <option value="Faculty">Faculty</option>
+                </select>
+            </div>
+
+            <p class="count-label" id="memberCount" aria-live="polite" aria-atomic="true"></p>
+
+            <div id="memberList" class="member-list" role="list" aria-label="Team member list"></div>
+
+        </section>
+
+
+        <!-- ── Panel: Add / Edit form ────────────────────── -->
+        <section id="panel-form" class="tab-panel" role="tabpanel" aria-labelledby="tab-form">
+
+            <div class="panel-header">
+                <h2 class="panel-title" id="formTitle">Add new member</h2>
+            </div>
+
+            <div class="form-card" role="form" aria-labelledby="formTitle">
+
+                <p class="form-section-label">Personal details</p>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="f-name" class="form-label">
+                            Full name <span aria-label="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="f-name"
+                            class="form-input"
+                            placeholder="e.g. Aminata Koroma"
+                            autocomplete="off"
+                            aria-required="true"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="f-pronouns" class="form-label">Pronouns</label>
+                        <select id="f-pronouns" class="form-select">
+                            <option value="she/her">she/her</option>
+                            <option value="he/him">he/him</option>
+                            <option value="they/them">they/them</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="f-class" class="form-label">Class <span aria-label="required">*</span></label>
+                        <select id="f-class" class="form-select" aria-required="true">
+                            <option value="SSS1">SSS1</option>
+                            <option value="SSS2">SSS2</option>
+                            <option value="SSS3" selected>SSS3</option>
+                            <option value="Faculty">Faculty</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="f-stream" class="form-label">Stream <span aria-label="required">*</span></label>
+                        <select id="f-stream" class="form-select" aria-required="true">
+                            <option value="Arts" selected>Arts</option>
+                            <option value="Science">Science</option>
+                            <option value="Commercial">Commercial</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <p class="form-section-label">Role & media</p>
+
+                <div class="form-grid">
+
+                    <div class="form-group full">
+                        <label for="f-role" class="form-label">
+                            Role / title <span aria-label="required">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            id="f-role"
+                            class="form-input"
+                            placeholder="e.g. Campus News Reporter"
+                            autocomplete="off"
+                            aria-required="true"
+                        >
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="f-photo" class="form-label">Photo file path</label>
+                        <input
+                            type="text"
+                            id="f-photo"
+                            class="form-input"
+                            placeholder="assets/images/filename.jpg"
+                            autocomplete="off"
+                        >
+                        <span class="form-hint">Leave blank to show initials avatar instead.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="f-tone" class="form-label">Card colour tone</label>
+                        <select id="f-tone" class="form-select">
+                            <option value="A">Tone A</option>
+                            <option value="B">Tone B</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <p class="form-section-label">Bio</p>
+
+                <div class="form-group full">
+                    <label for="f-bio" class="form-label">
+                        About this member <span aria-label="required">*</span>
+                    </label>
+                    <textarea
+                        id="f-bio"
+                        class="form-textarea"
+                        placeholder="Write a short bio — their role, personality, and contribution to the team…"
+                        aria-required="true"
+                    ></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button id="cancelBtn" class="btn" type="button">Cancel</button>
+                    <button id="saveBtn" class="btn btn-primary" type="button">
+                        Save member
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ── Panel: Export code ────────────────────────── -->
+        <section id="panel-export" class="tab-panel" role="tabpanel" aria-labelledby="tab-export">
+
+            <div class="panel-header">
+                <h2 class="panel-title">Export member data</h2>
+            </div>
+
+            <div class="export-notice" role="note">
+                Copy the code below and open your <code>app.js</code> file.
+                Find the <code>const members = [</code> array inside <code>loadMembersData()</code>,
+                select the whole array, and paste to replace it. Save the file and refresh the site.
+            </div>
+
+            <pre id="exportBox" class="export-box" tabindex="0" aria-label="Export code — copy this into your app.js file"></pre>
+
+            <div class="export-actions">
+                <button id="copyBtn" class="btn btn-primary" type="button">
+                    Copy to clipboard
+                </button>
+            </div>
+
+        </section>
+
+    </main><!-- /app-main -->
+
+</div><!-- /adminApp -->
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     DELETE CONFIRM MODAL
+════════════════════════════════════════════════════════════ -->
+<div
+    id="deleteModal"
+    class="modal-overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="deleteModalTitle"
+    aria-describedby="deleteModalDesc"
+>
+    <div class="modal-box">
+        <span class="modal-icon" aria-hidden="true">⚠️</span>
+        <h3 class="modal-title" id="deleteModalTitle">Remove member?</h3>
+        <p class="modal-body" id="deleteModalDesc">
+            You're about to remove
+            <strong class="modal-name" id="deleteModalName"></strong>
+            from the directory. This action cannot be undone.
+        </p>
+        <div class="modal-actions">
+            <button id="cancelDeleteBtn" class="btn" type="button">Keep member</button>
+            <button id="confirmDeleteBtn" class="btn btn-danger" type="button">Yes, remove</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOAST NOTIFICATION CONTAINER
+════════════════════════════════════════════════════════════ -->
+<div id="toastContainer" role="status" aria-live="polite" aria-atomic="true"></div>
+
+
+<!-- Script -->
+<script src="script/admin.js"></script>
+
+</body>
+</html>
